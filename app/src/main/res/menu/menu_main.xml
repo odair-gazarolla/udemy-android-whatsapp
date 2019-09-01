@@ -4,15 +4,23 @@
 
     <item android:id="@+id/itemConfiguracoes"
         android:title="Configurações"
-        android:orderInCategory="100" app:showAsAction="never"/>
+        android:orderInCategory="100"
+        app:showAsAction="never"/>
 
     <item android:id="@+id/itemSair"
         android:title="@string/item_sair"
-        android:orderInCategory="200" app:showAsAction="never"/>
+        android:orderInCategory="200"
+        app:showAsAction="never"/>
 
 
-    <item android:id="@+id/itemPesquisa" android:title="Pesquisar"
+    <item android:id="@+id/itemPesquisa"
+        android:title="Pesquisar"
         android:icon="@drawable/ic_search"
-        android:orderInCategory="300" app:showAsAction="ifRoom" />
+        android:orderInCategory="300"
+        app:showAsAction="ifRoom" />
 
+    <item android:id="@+id/itemAdicionar"
+        android:title="Adicionar"
+        android:orderInCategory="400"
+        app:showAsAction="never" />
 </menu>
