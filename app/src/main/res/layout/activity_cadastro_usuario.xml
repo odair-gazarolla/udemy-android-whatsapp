@@ -81,5 +81,6 @@
         android:text="@string/botao_cadastrar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtCadSenha" />
+        app:layout_constraintTop_toBottomOf="@+id/edtCadSenha"
+        android:theme="@style/botaoPadrao"/>
 </android.support.constraint.ConstraintLayout>

@@ -65,12 +65,11 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
-        android:background="@color/colorPrimaryDark"
         android:text="@string/botao_logar"
-        android:textColor="@color/textColorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtLoginSenha" />
+        app:layout_constraintTop_toBottomOf="@+id/edtLoginSenha"
+        android:theme="@style/botaoPadrao"/>
 
     <TextView
         android:id="@+id/tvCadastre"
