@@ -1,5 +1,6 @@
 package cursoandroid.whatsappandroid.com.br;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,6 +20,7 @@ import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.auth.FirebaseUser;
 
 import cursoandroid.whatsappandroid.com.br.config.ConfiguracaoFirebase;
+import cursoandroid.whatsappandroid.com.br.helper.Base64Custom;
 import cursoandroid.whatsappandroid.com.br.model.Usuario;
 
 public class CadastroUsuarioActivity extends AppCompatActivity {
@@ -68,13 +70,11 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
 
                     Toast.makeText(CadastroUsuarioActivity.this, "Sucesso ao cadastrar o usuario!", Toast.LENGTH_SHORT).show();
 
-                    FirebaseUser firebaseUser = task.getResult().getUser();
-                    usuario.setId(firebaseUser.getUid());
+                    String idUsuario = Base64Custom.codificarBase64(usuario.getEmail());
+                    usuario.setId(idUsuario);
 
                     usuario.salvar();
-                    autenticacao.signOut();
-
-                    finish();
+                    abrirLoginUsuario();
 
                 } else {
 
@@ -105,5 +105,12 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void abrirLoginUsuario() {
+
+        Intent intent = new Intent(CadastroUsuarioActivity.this, LoginActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
