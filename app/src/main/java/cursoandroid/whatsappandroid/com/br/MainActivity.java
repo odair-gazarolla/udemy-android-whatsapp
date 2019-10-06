@@ -1,6 +1,8 @@
 package cursoandroid.whatsappandroid.com.br;
 
 import android.content.Intent;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -10,12 +12,17 @@ import android.view.MenuItem;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+import cursoandroid.whatsappandroid.com.br.adapter.TabAdapter;
 import cursoandroid.whatsappandroid.com.br.config.ConfiguracaoFirebase;
+import cursoandroid.whatsappandroid.com.br.helper.SlidingTabLayout;
 
 public class MainActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
     private FirebaseAuth usuarioAutenticacao;
+
+    private SlidingTabLayout slidingTabLayout;
+    private ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +34,20 @@ public class MainActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("WattsApp");
         setSupportActionBar(toolbar);
+
+        slidingTabLayout = findViewById(R.id.stl_taps);
+        viewPager = findViewById(R.id.vp_pagina);
+
+        //Distribui as abas no espaço do layout
+        slidingTabLayout.setDistributeEvenly(true);
+        slidingTabLayout.setSelectedIndicatorColors(ContextCompat.getColor(this, R.color.colorAccent));
+
+        TabAdapter tabAdapter = new TabAdapter(getSupportFragmentManager());
+        viewPager.setAdapter(tabAdapter);
+
+        slidingTabLayout.setViewPager(viewPager);
+
+
     }
 
     @Override
